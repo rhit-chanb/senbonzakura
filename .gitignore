@@ -3,3 +3,4 @@ ffmpeg.exe
 yt-dlp.exe
 dl/*
 output/*
+data.json

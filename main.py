@@ -4,6 +4,8 @@ import sys
 import time
 
 def download(yt_url, audioOnly):
+    if yt_url == "nodownload":
+        return
     if audioOnly :
         os.system(f"yt-dlp -x --audio-format mp3 --force-overwrites {yt_url} -o \"./dl/raw.%(ext)s\"")
         print("done downloading audio only " + yt_url)
@@ -17,7 +19,7 @@ def scatter(audio_only):
     if audio_only:
         target_filename = "\"./dl/raw.mp3\""
         ext = ".mp3"
-    with open('data.json', 'r') as file:
+    with open('data.json', 'r', encoding="utf8") as file:
         data = file.read().rstrip()
         data = json.loads(data)
         tag_num = 1
