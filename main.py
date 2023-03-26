@@ -30,8 +30,8 @@ def scatter(audio_only):
             
             start_hms = time.strftime("%H:%M:%S", time.gmtime(start))
             end_hms = time.strftime("%H:%M:%S", time.gmtime(end))
-            print(f"ffmpeg -i {target_filename} -ss {start_hms} -to {end_hms} -c copy \"./output/{tag_num} - {title}.{ext}\"")
-            os.system(f"ffmpeg -i {target_filename} -ss {start_hms} -to {end_hms} -c copy \"./output/{tag_num} - {title}.{ext}\"")
+            print(f"ffmpeg -i {target_filename} -ss {start_hms} -to {end_hms} -c copy \"./output/{tag_num} - {title}{ext}\"")
+            os.system(f"ffmpeg -i {target_filename} -ss {start_hms} -to {end_hms} -c copy \"./output/{tag_num} - {title}{ext}\"")
             # process_id = os.spawnv(os.P_NOWAIT, "ffmpeg", ["-i", target_filename, "-ss", start_hms, "-to", end_hms, "-c", "copy", f"\"./output/{tag_num} - {title}.{ext}\""])
             tag_num += 1
     return
